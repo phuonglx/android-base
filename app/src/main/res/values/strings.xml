@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Weather Station</string>
+    <string name="welcome">Welcome To Weather Station</string>
+    <string name="search_hint">Search Weather</string>
+    <string name="search_history">Recent search</string>
+</resources>
