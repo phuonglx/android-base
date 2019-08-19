@@ -10,7 +10,7 @@ interface Database {
     //Function for WeatherModel
     fun insertWeather(weatherModel: WeatherModel): Completable
 
-    fun queryWeather(id: Int): Single<WeatherModel>
+    fun queryWeather(name: String): Single<WeatherModel>
 
     fun queryWeathers(): Flowable<List<WeatherModel>>
 }

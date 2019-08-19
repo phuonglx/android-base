@@ -19,7 +19,8 @@ class DatabaseImpl(private val DAO: DAO) : Database {
         }
     }
 
-    override fun queryWeather(id: Int): Single<WeatherModel> = DAO.weatherDao().queryWeather(id)
+    override fun queryWeather(name: String): Single<WeatherModel> =
+        DAO.weatherDao().queryWeather(name)
 
     override fun queryWeathers(): Flowable<List<WeatherModel>> = DAO.weatherDao().queryWeathers()
 }

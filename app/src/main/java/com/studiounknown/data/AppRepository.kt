@@ -28,7 +28,7 @@ class AppRepository(
                 it.toModel()
             }
         } else {
-            database.queryWeather(1)
+            database.queryWeather(name)
         }
 
     override fun getWeathers(): Flowable<List<WeatherModel>> = database.queryWeathers()

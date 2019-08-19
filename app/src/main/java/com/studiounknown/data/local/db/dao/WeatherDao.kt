@@ -14,8 +14,8 @@ interface WeatherDao {
     @Query("SELECT * from weather")
     fun queryWeathers(): Flowable<List<WeatherModel>>
 
-    @Query("SELECT * FROM weather WHERE id = :id")
-    fun queryWeather(id: Int): Single<WeatherModel>
+    @Query("SELECT * FROM weather WHERE UPPER(name) LIKE UPPER(:name) LIMIT 1")
+    fun queryWeather(name: String): Single<WeatherModel>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertWeather(weatherModel: WeatherModel): Long

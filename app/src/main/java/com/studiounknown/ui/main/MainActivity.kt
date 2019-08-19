@@ -33,13 +33,13 @@ class MainActivity : BaseActivity<MainViewModel>() {
     override fun setupUI() {
         super.setupUI()
         etSearch.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(p0: Editable?) {}
+            override fun afterTextChanged(p0: Editable?) {
+                viewModel.search(p0.toString())
+            }
 
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                viewModel.search(p0?.toString())
-            }
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
         })
         weatherAdapter = WeatherAdapter {
             // TODO: handle item click

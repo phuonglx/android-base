@@ -48,11 +48,11 @@ class MainViewModel(
                     !it.isBlank() && it.length >= MIN_LENGTH_SEARCH
                 }
                 .distinctUntilChanged()
-                .switchMap {
-                    repository.getWeather(it, true).toObservable()
+                .switchMap { finalName ->
+                    repository.getWeather(finalName, true).toObservable()
                         .compose(applyApiSchedulers(loading))
                         .doOnError {
-                            getWeatherLocal(name)
+                            getWeatherLocal(finalName)
                         }
                         .onErrorResumeNext(Observable.empty())
                 }
